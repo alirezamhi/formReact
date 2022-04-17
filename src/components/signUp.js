@@ -1,6 +1,7 @@
-import React , { useState } from 'react';
+import React , {useState , useEffect} from 'react';
+import { ValueData } from './ValueData';
 
-const signUp = () => {
+const SignUp = () => {
     
     const [data , setData] = useState({
         name:"",
@@ -8,7 +9,14 @@ const signUp = () => {
         password :"",
         confirmpasswor:"",
         isAccept: false
-    });
+    })
+
+    const [error , setError] = useState({});
+
+    useEffect( ()=>{
+        setError(ValueData(data))
+        console.log(error)
+    } , [data])
 
     const changeHandler = (event) =>{
         if(event.target.name === "isAccept"){
@@ -17,26 +25,26 @@ const signUp = () => {
             setData({...data , [event.target.name] : event.target.value})
         }
     }
-
+    
     return (
         <div>
             <form>
-                <h2>SignUp</h2>
-                <div>
-                    <label htmlFor='name'>Name</label>
-                    <input type="text" name='name' id='name' value={data.name} onChange={changeHandler}/>
-                </div>
-                <div>
-                    <label htmlFor='email'>email</label>
+                 <h2>SignUp</h2>
+                 <div>
+                     <label htmlFor='name'>Name</label>
+                     <input type="text" name='name' id='name' value={data.name} onChange={changeHandler}/>
+                 </div>
+                 <div>
+                     <label htmlFor='email'>email</label>
                     <input type="email" name='email' id='email' value={data.email} onChange={changeHandler}/>
                 </div>
                 <div>
                     <label htmlFor='pasword'>pasword</label>
-                    <input type="password" name='pasword' id='pasword' value={data.pasword} onChange={changeHandler}/>
+                    <input type="password" name='password' id='pasword' value={data.password} onChange={changeHandler}/>
                 </div>
                 <div>
                     <label htmlFor='confirmpassword'>confirmpasswor</label>
-                    <input type="password" name='confirmpassword' id='confirmpassword' value={data.confirmpassword} onChange={changeHandler}/>
+                    <input type="password" name='confirmpasswor' id='confirmpassword' value={data.confirmpasswor} onChange={changeHandler}/>
                 </div>
                 <div>
                     <label htmlFor='isAccept'>I accept term of private police</label>
@@ -51,4 +59,4 @@ const signUp = () => {
     );
 };
 
-export default signUp;
+export default SignUp;

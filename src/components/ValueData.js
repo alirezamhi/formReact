@@ -1,6 +1,5 @@
-const errorMassage = {};
-
 export const ValueData = (data) => {
+    const errorMassage = {};
     if(!data.name.trim()){
         errorMassage.name ="Username required"
     }else{

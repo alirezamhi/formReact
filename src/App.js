@@ -1,17 +1,17 @@
 import './App.css';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
-import {Route,Switch,Redirect} from 'react-router-dom';
+import {Route , Routes , Navigate} from 'react-router-dom';
 
 
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route path="/signup" component={SignUp}/>  
-        <Route path="/login" component={Login}/>
-        <Redirect from="/" to="/login"/>
-      </Switch>
+      <Routes>
+        <Route path="/signup" element={<SignUp />}/>  
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/" element={<Navigate to="/signup" />}/>
+      </Routes>
     </div>
   );
 }

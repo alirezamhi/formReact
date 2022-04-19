@@ -79,14 +79,14 @@ const SignUp = () => {
                     {error.confirmpasswor && touch.confirmpasswor && <span>{error.confirmpasswor}</span>}
                 </div>
                 <div className={Style.containercheked}>
-                    <div>
+                    <div className={Style.checked}>
                         <label htmlFor='isAccept'>I accept term of private police</label>
                         <input type="checkbox" name='isAccept' id='isAccept' value={data.isAccept} onChange={changeHandler} onBlur={bulerHandler}/>
                     </div>
                     {error.isAccept && touch.isAccept && <span>{error.isAccept}</span>}
                 </div>
                 <div className={Style.formbutton}>
-                    <Link to="login" className={Style.linkclass}>Loggin</Link>
+                    <Link to="/login" className={Style.linkclass}>Loggin</Link>
                     <button type='submit'>Sing Up</button>
                 </div>
             </form>

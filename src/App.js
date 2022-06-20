@@ -1,5 +1,5 @@
 import './App.css';
-import SignUp from './components/SignUp';
+import SignUp from './components/signUp';
 import Login from './components/Login';
 import {Route , Routes , Navigate} from 'react-router-dom';
 
